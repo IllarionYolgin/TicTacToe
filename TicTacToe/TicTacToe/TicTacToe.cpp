@@ -41,22 +41,43 @@ public:
 	}
 	void GetTurn()
 	{
-		cout << "x=";
-		cin >> x;	
-		cout << "y=";
-		cin >> y;
+		do
+		{
+			do
+			{
+				cout << "x=";
+				cin >> x;
+				x--;
+			} while (!IsOnBroad(x));
+			do
+			{
+				cout << "y=";
+				cin >> y;
+				y--;
+			} while (!IsOnBroad(y));
+		} while (!IsFree());
 	}
 	void SetX() 
 	{ 
 		GetTurn();
-		Array[y - 1][x - 1] = 'x'; 
+		Array[y][x] = 'x'; 
 	}
 	void SetO() 
 	{ 
 		GetTurn(); 
-		Array[y - 1][x - 1] = 'o';
+		Array[y][x] = 'o';
 	}
-	
+	bool IsFree()
+	{
+		if (!(Array[x][y] == ' ')) cout <<"Cell is not free"<<endl;
+		return (Array[x][y] == ' ');
+	}
+	bool IsOnBroad(int iInside)
+	{
+		if (!((iInside < 3) and (iInside >= 0))) cout << "Out of broad" << endl;
+		return ((iInside<3) and (iInside>=0));
+	}
+
 };
 
 int main()
