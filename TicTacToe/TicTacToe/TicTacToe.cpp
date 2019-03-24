@@ -8,15 +8,19 @@ using namespace std;
 
 class Desk 
 {
+	int x, y;
 	char Array[3][3];
 public:
 	Desk() 
 	{
+		x = 0;
+		y = 0;
 		for (int i = 0; i < 3;i++)
 			for (int j = 0; j < 3; j++)
 			{
 				Array[i][j] = ' ';
 			}
+
 	}
 	~Desk() {}
 	void ShowDesk()
@@ -35,27 +39,24 @@ public:
 			cout << endl;
 		}
 	}
+	void GetTurn()
+	{
+		cout << "x=";
+		cin >> x;	
+		cout << "y=";
+		cin >> y;
+	}
 	void SetX() 
 	{ 
-		cout << "x="; 
-		int x = 1; 
-		int y = 1; 
-		cin >> x; 
-		cout << "y="; 
-		cin >> y; 
+		GetTurn();
 		Array[y - 1][x - 1] = 'x'; 
 	}
 	void SetO() 
 	{ 
-		cout << "x="; 
-		int x = 1; 
-		int y = 1; 
-		cin >> x; 
-		cout << "y="; 
-		cin >> y; 
+		GetTurn(); 
 		Array[y - 1][x - 1] = 'o';
 	}
-
+	
 };
 
 int main()
