@@ -77,7 +77,68 @@ public:
 		if (!((iInside < 3) and (iInside >= 0))) cout << "Out of broad" << endl;
 		return ((iInside<3) and (iInside>=0));
 	}
-
+	/*void Win(char Key)
+	{
+		int count(0);
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				if (Array[i][j] != Key)
+				{
+					count = 0;
+					break;
+				}
+				count++;
+			}
+			if (count == 3)
+			{
+				cout << "Win " << Key << endl;
+			}
+		}
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				if (Array[j][i] != Key)
+				{
+					count = 0;
+					break;
+				}
+				count++;
+			}
+			if (count == 3)
+			{
+				cout << "Win " << Key << endl;
+			}
+		}
+		for (int i = 0; i < 3; i++)
+		{
+			if (Array[i][i] != Key)
+			{
+				count = 0;
+				break;
+			}
+			count++;
+			if (count == 3)
+			{
+				cout << "Win " << Key << endl;
+			}
+		}
+		for (int i = 0; i <3; i++)
+		{
+			if (Array[i][2-i] != Key)
+			{
+				count = 0;
+				break;
+			}
+			count++;
+			if (count == 3)
+			{
+				cout << "Win " << Key << endl;
+			}
+		}
+	}*/
 };
 
 int main()
