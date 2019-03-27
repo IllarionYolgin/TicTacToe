@@ -6,12 +6,12 @@
 
 using namespace std;
 
-class Desk 
+class Game 
 {
 	int x, y;
 	char Array[3][3];
 public:
-	Desk() 
+	Game() 
 	{
 		x = 0;
 		y = 0;
@@ -22,7 +22,7 @@ public:
 			}
 
 	}
-	~Desk() {}
+	~Game() {}
 	void ShowDesk()
 	{
 		for (int i = 0; i < 3; i++)
@@ -69,7 +69,7 @@ public:
 	}
 	bool IsFree()
 	{
-		if (!(Array[x][y] == ' ')) cout <<"Cell is not free"<<endl;
+		if (Array[x][y] != ' ') cout <<"Cell is not free"<<endl;
 		return (Array[x][y] == ' ');
 	}
 	bool IsOnBroad(int iInside)
@@ -77,7 +77,7 @@ public:
 		if (!((iInside < 3) and (iInside >= 0))) cout << "Out of broad" << endl;
 		return ((iInside<3) and (iInside>=0));
 	}
-	/*void Win(char Key)
+	void WinCheck(char Key)
 	{
 		int count(0);
 		for (int i = 0; i < 3; i++)
@@ -138,15 +138,28 @@ public:
 				cout << "Win " << Key << endl;
 			}
 		}
-	}*/
+	}
+	void Start() 
+	{
+		for (int i = 0; i < 9; i++)
+		{
+			ShowDesk();
+			if (i % 2 == 0)
+			{
+				SetX();
+				WinCheck('x');
+			}
+			if (i % 2 == 1)
+			{
+				SetO();
+				WinCheck('o');
+			}
+		}
+	}
 };
 
 int main()
 {
-	Desk Broad;
-	Broad.ShowDesk();
-	Broad.SetX();
-	Broad.ShowDesk();
-	Broad.SetO();
-	Broad.ShowDesk();
+	Game Broad;
+	Broad.Start();
 }
